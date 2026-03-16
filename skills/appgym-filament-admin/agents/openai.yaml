@@ -1,0 +1,4 @@
+version: 1
+display_name: AppGym Filament Admin
+short_description: Build and maintain trainer admin features in Filament.
+default_prompt: Update the trainer admin area in AppGym using Filament and preserve ownership rules.

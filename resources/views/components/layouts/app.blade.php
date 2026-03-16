@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ $title ?? 'AppGym' }}</title>
+    <style>
+        :root{--bg:#f5efe4;--panel:#fff;--ink:#1f2937;--muted:#6b7280;--line:#e5d7bf;--accent:#c26d3d;--accent-dark:#7c3f1d;--success:#1f7a52}
+        *{box-sizing:border-box}
+        body{margin:0;font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at top left,rgba(194,109,61,.15),transparent 22%),linear-gradient(180deg,#fbf7f1 0%,var(--bg) 100%);color:var(--ink)}
+        a{color:inherit}
+        .shell{max-width:1100px;margin:0 auto;padding:1.5rem}
+        .nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:2rem;padding:1rem 1.25rem;background:rgba(255,255,255,.75);border:1px solid rgba(124,63,29,.12);border-radius:22px;backdrop-filter:blur(12px)}
+        .nav-links{display:flex;gap:.75rem;flex-wrap:wrap}
+        .nav-links a,.nav button{text-decoration:none;border:0;background:transparent;font:inherit;cursor:pointer;padding:.75rem 1rem;border-radius:999px}
+        .nav-links a.active{background:var(--ink);color:#fff}
+        .nav button{color:var(--accent-dark);border:1px solid rgba(124,63,29,.25)}
+        .grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+        .card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:1.4rem;box-shadow:0 20px 40px rgba(31,41,55,.08)}
+        .eyebrow{margin:0 0 .45rem;color:var(--accent-dark);font-size:.85rem;text-transform:uppercase;letter-spacing:.08em}
+        h1,h2,h3{margin-top:0}
+        .muted{color:var(--muted)}
+        .empty{border:1px dashed var(--line);background:rgba(255,255,255,.55)}
+        .pill{display:inline-flex;align-items:center;padding:.3rem .65rem;border-radius:999px;background:rgba(31,122,82,.1);color:var(--success);font-size:.9rem}
+        ul.clean{list-style:none;padding:0;margin:0}
+        ul.clean li+li{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line)}
+        .auth-card{max-width:460px;margin:8vh auto}
+        label{display:block;font-weight:700;margin-bottom:.45rem}
+        input,textarea{width:100%;border:1px solid #d4c2ab;border-radius:16px;padding:.9rem 1rem;font:inherit;background:rgba(255,255,255,.95)}
+        textarea{min-height:160px}
+        .btn-primary{width:100%;border:0;border-radius:999px;padding:.95rem 1.2rem;background:linear-gradient(90deg,var(--accent-dark),var(--accent));color:#fff;font:inherit;font-weight:700;cursor:pointer}
+        .error{color:#9f1239;margin-top:.5rem;font-size:.95rem}
+        @media (max-width:640px){.nav{flex-direction:column;align-items:stretch}.nav-links{width:100%}.nav-links a,.nav button{flex:1 1 auto;text-align:center}}
+    </style>
+</head>
+<body>
+    {{ $slot }}
+</body>
+</html>

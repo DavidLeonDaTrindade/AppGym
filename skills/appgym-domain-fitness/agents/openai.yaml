@@ -1,0 +1,4 @@
+version: 1
+display_name: AppGym Domain Fitness
+short_description: Domain model, relationships, migrations, and ownership rules.
+default_prompt: Update the AppGym fitness domain model while preserving trainer ownership and active assignment rules.

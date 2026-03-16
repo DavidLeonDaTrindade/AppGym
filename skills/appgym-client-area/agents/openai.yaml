@@ -1,0 +1,4 @@
+version: 1
+display_name: AppGym Client Area
+short_description: Client dashboard, routine, diet, and responsive UI.
+default_prompt: Improve the AppGym client-facing area while preserving current assignment logic and mobile readability.

@@ -1,0 +1,4 @@
+version: 1
+display_name: AppGym Docker Laravel
+short_description: Docker, env, MySQL, and Laravel local operations.
+default_prompt: Fix or improve the AppGym Docker and Laravel runtime setup without affecting other projects.

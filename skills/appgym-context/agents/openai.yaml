@@ -1,0 +1,4 @@
+version: 1
+display_name: AppGym Context
+short_description: Project context and constraints for AppGym.
+default_prompt: Use the AppGym project context and constraints before making changes.

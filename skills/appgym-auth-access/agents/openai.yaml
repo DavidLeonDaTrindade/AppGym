@@ -1,0 +1,4 @@
+version: 1
+display_name: AppGym Auth Access
+short_description: Auth, redirects, middleware, gates, and role boundaries.
+default_prompt: Update AppGym authentication and access control while preserving trainer and client separation.

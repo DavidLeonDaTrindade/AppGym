@@ -1,0 +1,4 @@
+version: 1
+display_name: Skill Template
+short_description: Starter structure for new AppGym skills.
+default_prompt: Create or update this skill for the AppGym project following the SKILL.md instructions.

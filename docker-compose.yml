@@ -1,0 +1,37 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: appgym_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    container_name: appgym_db
+    environment:
+      MYSQL_DATABASE: appgym
+      MYSQL_USER: appgym
+      MYSQL_PASSWORD: appgympass
+      MYSQL_ROOT_PASSWORD: rootpass
+      TZ: Europe/Madrid
+    ports:
+      - "3308:3306"
+    volumes:
+      - appgym_dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-prootpass"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  appgym_dbdata:

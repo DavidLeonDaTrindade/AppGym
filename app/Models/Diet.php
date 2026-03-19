@@ -32,4 +32,9 @@ class Diet extends Model
     {
         return $this->hasMany(ClientDiet::class);
     }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(DietFood::class)->orderBy('sort_order')->orderBy('id');
+    }
 }

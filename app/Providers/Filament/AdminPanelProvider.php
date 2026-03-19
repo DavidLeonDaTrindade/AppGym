@@ -12,6 +12,7 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets;
+use Illuminate\Support\HtmlString;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -28,7 +29,11 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->brandName('AppGym')
+            ->brandName('')
+            ->brandLogo(fn (): HtmlString => new HtmlString(
+                '<img src="' . asset('branding/on-training-logo-clean.png') . '" alt="On Training" style="height:3.35rem; width:auto;">'
+            ))
+            ->brandLogoHeight('3.35rem')
             ->colors([
                 'primary' => Color::Amber,
             ])

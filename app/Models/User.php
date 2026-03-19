@@ -84,6 +84,11 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(Diet::class, 'trainer_id');
     }
 
+    public function foods(): HasMany
+    {
+        return $this->hasMany(Food::class, 'trainer_id');
+    }
+
     public function clientRoutineAssignments(): HasMany
     {
         return $this->hasMany(ClientRoutine::class, 'client_id');

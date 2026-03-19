@@ -11,6 +11,8 @@
         a{color:inherit}
         .shell{max-width:1100px;margin:0 auto;padding:1.5rem}
         .nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:2rem;padding:1rem 1.25rem;background:rgba(255,255,255,.75);border:1px solid rgba(124,63,29,.12);border-radius:22px;backdrop-filter:blur(12px)}
+        .brand-lockup{display:flex;align-items:center;gap:.9rem;min-width:0}
+        .brand-logo{width:78px;height:78px;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(124,63,29,.16))}
         .nav-links{display:flex;gap:.75rem;flex-wrap:wrap}
         .nav-links a,.nav button{text-decoration:none;border:0;background:transparent;font:inherit;cursor:pointer;padding:.75rem 1rem;border-radius:999px}
         .nav-links a.active{background:var(--ink);color:#fff}
@@ -49,7 +51,7 @@
         table.metrics th,table.metrics td{padding:.8rem .65rem;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
         .flash{margin-bottom:1rem;padding:1rem 1.1rem;border-radius:18px;background:rgba(31,122,82,.12);border:1px solid rgba(31,122,82,.2);color:#155e43}
         .error{color:#9f1239;margin-top:.5rem;font-size:.95rem}
-        @media (max-width:640px){.nav{flex-direction:column;align-items:stretch}.nav-links{width:100%}.nav-links a,.nav button{flex:1 1 auto;text-align:center}}
+        @media (max-width:640px){.nav{flex-direction:column;align-items:stretch}.brand-lockup{justify-content:center}.brand-logo{width:60px;height:60px}.nav-links{width:100%}.nav-links a,.nav button{flex:1 1 auto;text-align:center}}
     </style>
 </head>
 <body>

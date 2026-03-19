@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'usda_food_data_central' => [
+        'key' => env('USDA_FDC_API_KEY'),
+        'base_url' => env('USDA_FDC_BASE_URL', 'https://api.nal.usda.gov/fdc/v1'),
+    ],
+
 ];

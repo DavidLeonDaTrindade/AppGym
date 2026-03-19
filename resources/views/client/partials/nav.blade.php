@@ -1,7 +1,10 @@
 <nav class="nav">
-    <div>
-        <strong>AppGym</strong>
-        <div class="muted">Área cliente</div>
+    <div class="brand-lockup">
+        <img src="{{ asset('branding/on-training-logo-clean.png') }}" alt="On Training" class="brand-logo">
+        <div>
+            <strong>On Training</strong>
+            <div class="muted">Área cliente</div>
+        </div>
     </div>
     <div class="nav-links">
         <a href="{{ route('dashboard') }}" class="{{ $active === 'dashboard' ? 'active' : '' }}">Resumen</a>

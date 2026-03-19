@@ -8,6 +8,7 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -27,6 +28,16 @@ class User extends Authenticatable implements FilamentUser
         'is_active',
         'trainer_id',
         'notes',
+        'age',
+        'training_years',
+        'height_cm',
+        'weight_kg',
+        'body_mass_index',
+        'muscle_mass_index',
+        'body_fat_percentage',
+        'muscle_mass_kg',
+        'goal_weight_kg',
+        'waist_cm',
     ];
 
     protected $hidden = [
@@ -40,6 +51,16 @@ class User extends Authenticatable implements FilamentUser
             'email_verified_at' => 'datetime',
             'is_active' => 'boolean',
             'password' => 'hashed',
+            'age' => 'integer',
+            'training_years' => 'integer',
+            'height_cm' => 'decimal:2',
+            'weight_kg' => 'decimal:2',
+            'body_mass_index' => 'decimal:2',
+            'muscle_mass_index' => 'decimal:2',
+            'body_fat_percentage' => 'decimal:2',
+            'muscle_mass_kg' => 'decimal:2',
+            'goal_weight_kg' => 'decimal:2',
+            'waist_cm' => 'decimal:2',
         ];
     }
 
@@ -83,6 +104,16 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(ClientDiet::class, 'trainer_id');
     }
 
+    public function measurements(): HasMany
+    {
+        return $this->hasMany(BodyMeasurement::class, 'client_id');
+    }
+
+    public function latestMeasurement(): HasOne
+    {
+        return $this->hasOne(BodyMeasurement::class, 'client_id')->latestOfMany('measured_at');
+    }
+
     public function isTrainer(): bool
     {
         return $this->role === self::ROLE_TRAINER;
@@ -96,5 +127,21 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessPanel(Panel $panel): bool
     {
         return $panel->getId() === 'admin' && $this->isTrainer() && $this->is_active;
+    }
+
+    public function syncPhysicalMetricsFromMeasurement(BodyMeasurement $measurement): void
+    {
+        $this->forceFill([
+            'age' => $measurement->age,
+            'training_years' => $measurement->training_years,
+            'height_cm' => $measurement->height_cm,
+            'weight_kg' => $measurement->weight_kg,
+            'body_mass_index' => $measurement->body_mass_index,
+            'muscle_mass_index' => $measurement->muscle_mass_index,
+            'body_fat_percentage' => $measurement->body_fat_percentage,
+            'muscle_mass_kg' => $measurement->muscle_mass_kg,
+            'goal_weight_kg' => $measurement->goal_weight_kg,
+            'waist_cm' => $measurement->waist_cm,
+        ])->save();
     }
 }
